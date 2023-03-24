@@ -30,6 +30,10 @@ public class Person {
 
     String passwordHash;
 
+
+    @ManyToOne
+    private Stage stage;
+
     public static void main(String[] args) {
         Person p = new Person();
         p.setEmail("yippee@y8ipee.com");
