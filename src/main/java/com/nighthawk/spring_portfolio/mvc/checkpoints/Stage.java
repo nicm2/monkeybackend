@@ -30,8 +30,11 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 	@Override
 	public String toJson()
 	{
-		
 		// return all data in json format
 		return "{ \"Name\": \"" + name + "\", \"Stage\": \"" + stage + "\"}";
+	}
+
+    public static void main(String[] args)
+	{
 	}
 }
