@@ -7,12 +7,31 @@ import lombok.*;
 @Data
 @Entity
 
-public class Stage {
+public class Stage extends DataObject implements DataObject.InterfaceToJson {
 
     // Stage data
 	private String name;
 	private int stage;
 	private ArrayList<String> listLevels; 
-    // name, what number stage you are on, use list of levels, make main methods
     // to string to json
+
+    	/* 'Generics' requires toString override
+	 * toString provides data based off of Static Key setting
+	 */
+	@Override
+	public String toString()
+	{
+		return "Name: " + name + ", Stage: " + stage;
+	}
+
+	/* 'Generics' requires toJson override
+	 * toJson provides data based off of Static Key setting
+	 */
+	@Override
+	public String toJson()
+	{
+		
+		// return all data in json format
+		return "{ \"Name\": \"" + name + "\", \"Stage\": \"" + stage + "\"}";
+	}
 }
