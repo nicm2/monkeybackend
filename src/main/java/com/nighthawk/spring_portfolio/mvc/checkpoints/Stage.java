@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.persistence.Entity;
 
 import lombok.*;
