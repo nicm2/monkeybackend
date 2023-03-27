@@ -1,3 +1,4 @@
+package com.nighthawk.spring_portfolio.mvc.checkpoints;
 import java.util.ArrayList;
 import javax.persistence.Entity;
 
