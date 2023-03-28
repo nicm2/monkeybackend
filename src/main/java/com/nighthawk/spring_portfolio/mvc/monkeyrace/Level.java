@@ -25,7 +25,13 @@ public class Level {
     private int number;
 
     private String question;
-    private String answer;
+    
+    private String answer1;
+    private String answer2;
+    private String answer3;
+    private String answer4;
+    
+    private int correctAnswer;
 
     @ManyToOne
     private Stage stage;
@@ -36,7 +42,11 @@ public class Level {
         l.setName("What is sorting?");
         l.setNumber(1);
         l.setQuestion("Sort this array: 5 6 4 2 1");
-        l.setAnswer("1 2 4 5 6");
+        l.setAnswer1("1 2 4 5 6");
+        l.setAnswer2("2 3 4 5 6");
+        l.setAnswer3("6 5 4 2 1");
+        l.setAnswer4("1 2 3 5 5");
+        l.setCorrectAnswer1(1);
 
         System.out.println(l);
     }
