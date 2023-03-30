@@ -8,23 +8,22 @@ import lombok.*;
 @Entity
 
 public class Stage extends DataObject implements DataObject.InterfaceToJson {
-
-    // Stage data
     private ArrayList<Integer> levels;
     private String playerName;
     private Level currentLevel;
-    private Object stage;
-
-    public Stage(String playerName) {
-        this.playerName = playerName;
-        this.levels = new ArrayList<Integer>();
-        this.stage = Stage.LEVEL_ONE;
-    }
 
     public Stage(String playerName) {
         this.playerName = playerName;
         this.levels = new ArrayList<Integer>();
         this.currentLevel = Level.ONE;
+    }
+    
+    enum Level {
+        ONE,
+        TWO,
+        THREE,
+        FOUR,
+        FIVE
     }
 
     public ArrayList<Integer> getLevels() {
@@ -51,10 +50,6 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
         this.currentLevel = currentLevel;
     }
 
-    /* 'Generics' requires toString override
-    * toString provides data based off of Static Key setting
-    */
-
     // to string to json
 	@Override
 	public String toString()
@@ -72,27 +67,12 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 		return "{ \"Name\": \"" + playerName + "\", \"Stage\": \"" + stage + "\", \"Level\": \"" + currentLevel + "\" }";
 	}
 
-    public static Stage[] stages() {
-        return new Stage[] {
-            new Stage("Data Structures"),
-            new Stage("Sorting"),
-            new Stage ("Arrays")
-        };
+    public static void main(String[] args) {
+        Stage stage = new Stage("John");
+        stage.getLevels().add(1); 
+        stage.getLevels().add(2);
+        stage.setCurrentLevel(Level.TWO);
+        System.out.println(stage.toString());
+        System.out.println(stage.toJson());
     }
-
-    enum Level {
-        ONE,
-        TWO,
-        THREE,
-        FOUR,
-        FIVE
-    }
-
-    public static void main(String[] args)
-	{
-        Stage testStage = new Stage("Data Structures");
-        System.out.println("Stage Class Test");
-		System.out.println(testStage.toString());
-		System.out.println(testStage.toJson());
-	}
 }
