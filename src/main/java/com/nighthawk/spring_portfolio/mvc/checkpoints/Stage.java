@@ -17,7 +17,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
         this.levels = new ArrayList<Integer>();
         this.currentLevel = Level.ONE;
     }
-    
+    // levels
     enum Level {
         ONE,
         TWO,
