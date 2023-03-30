@@ -10,14 +10,46 @@ import lombok.*;
 public class Stage extends DataObject implements DataObject.InterfaceToJson {
 
     // Stage data
-    private String name;
-	private ArrayList<String> stages = new ArrayList<String>();
+    private ArrayList<Integer> levels;
+    private String playerName;
+    private Level currentLevel;
+    private Object stage;
 
-    public Stage(String stages)
-	{
-		super("Stage");
-        this.stages = stages; 
-	}
+    public Stage(String playerName) {
+        this.playerName = playerName;
+        this.levels = new ArrayList<Integer>();
+        this.stage = Stage.LEVEL_ONE;
+    }
+
+    public Stage(String playerName) {
+        this.playerName = playerName;
+        this.levels = new ArrayList<Integer>();
+        this.currentLevel = Level.ONE;
+    }
+
+    public ArrayList<Integer> getLevels() {
+        return this.levels;
+    }
+
+    public void setLevels(ArrayList<Integer> levels) {
+        this.levels = levels;
+    }
+
+    public String getPlayerName() {
+        return this.playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public Level getCurrentLevel() {
+        return this.currentLevel;
+    }
+
+    public void setCurrentLevel(Level currentLevel) {
+        this.currentLevel = currentLevel;
+    }
 
     /* 'Generics' requires toString override
     * toString provides data based off of Static Key setting
@@ -27,7 +59,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 	@Override
 	public String toString()
 	{
-		return "Name: " + name + ", Stage: " + stages;
+		return "Name: " + playerName + ", Stage: " + stage + ", Level: " + currentLevel;
 	}
 
 	/* 'Generics' requires toJson override
@@ -37,7 +69,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 	public String toJson()
 	{
 		// return all data in json format
-		return "{ \"Name\": \"" + name + "\", \"Stage\": \"" + stages + "\"}";
+		return "{ \"Name\": \"" + playerName + "\", \"Stage\": \"" + stage + "\", \"Level\": \"" + currentLevel + "\" }";
 	}
 
     public static Stage[] stages() {
@@ -46,6 +78,14 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
             new Stage("Sorting"),
             new Stage ("Arrays")
         };
+    }
+
+    enum Level {
+        ONE,
+        TWO,
+        THREE,
+        FOUR,
+        FIVE
     }
 
     public static void main(String[] args)
