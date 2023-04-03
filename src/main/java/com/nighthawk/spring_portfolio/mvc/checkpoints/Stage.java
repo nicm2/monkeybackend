@@ -37,20 +37,23 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
     public void setLevels(ArrayList<Integer> levels) {
         this.levels = levels;
     }
-    
+
     // getter for playername
     public String getPlayerName() {
         return this.playerName;
     }
 
+    // setter for playername
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
+    // getter for current level
     public Level getCurrentLevel() {
         return this.currentLevel;
     }
 
+    // setter for current level
     public void setCurrentLevel(Level currentLevel) {
         this.currentLevel = currentLevel;
     }
@@ -72,6 +75,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 		return "{ \"Name\": \"" + playerName + "\", \"Level\": \"" + currentLevel + "\" }";
 	}
 
+    // main method for testing
     public static void main(String[] args) {
         Stage stage = new Stage("John");
         stage.getLevels().add(1); 
