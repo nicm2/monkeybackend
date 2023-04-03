@@ -13,6 +13,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
     private Level currentLevel;
 
     public Stage(String playerName) {
+        super("Stage");
         this.playerName = playerName;
         this.levels = new ArrayList<Integer>();
         this.currentLevel = Level.ONE;
@@ -54,7 +55,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 	@Override
 	public String toString()
 	{
-		return "Name: " + playerName + ", Stage: " + stage + ", Level: " + currentLevel;
+		return "Name: " + playerName + ", Level: " + currentLevel;
 	}
 
 	/* 'Generics' requires toJson override
@@ -64,7 +65,7 @@ public class Stage extends DataObject implements DataObject.InterfaceToJson {
 	public String toJson()
 	{
 		// return all data in json format
-		return "{ \"Name\": \"" + playerName + "\", \"Stage\": \"" + stage + "\", \"Level\": \"" + currentLevel + "\" }";
+		return "{ \"Name\": \"" + playerName + "\", \"Level\": \"" + currentLevel + "\" }";
 	}
 
     public static void main(String[] args) {
