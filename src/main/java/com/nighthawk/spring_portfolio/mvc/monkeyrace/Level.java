@@ -46,7 +46,7 @@ public class Level {
         l.setAnswer2("2 3 4 5 6");
         l.setAnswer3("6 5 4 2 1");
         l.setAnswer4("1 2 3 5 5");
-        l.setCorrectAnswer1(1);
+        l.setCorrectAnswer(1);
 
         System.out.println(l);
     }
